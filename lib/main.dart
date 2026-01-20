@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: state.themeMode,
       home: BlocProvider(
-        create: (_) => di.sl<StoriesListBloc>()..add(FetchStoriesEvent()),
+        create: (_) => di.sl<StoriesListBloc>()..add(StoriesListFetched()),
         child: const StoriesListScreen(),
       ),
     ),

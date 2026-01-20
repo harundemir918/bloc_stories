@@ -24,7 +24,7 @@ class StoriesAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ? Icons.dark_mode_outlined
                 : Icons.light_mode_outlined,
           ),
-          onPressed: () => context.read<ThemeBloc>().add(ToggleThemeEvent()),
+          onPressed: () => context.read<ThemeBloc>().add(ThemeToggled()),
         ),
       ],
     ),

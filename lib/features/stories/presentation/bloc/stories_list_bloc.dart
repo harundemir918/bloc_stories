@@ -9,20 +9,20 @@ class StoriesListBloc extends Bloc<StoriesListEvent, StoriesListState> {
   final GetStories getStories;
 
   StoriesListBloc({required this.getStories}) : super(StoriesListInitial()) {
-    on<FetchStoriesEvent>(_onFetchStories);
+    on<StoriesListFetched>(_onStoriesListFetched);
   }
 
-  Future<void> _onFetchStories(
-    FetchStoriesEvent event,
+  Future<void> _onStoriesListFetched(
+    StoriesListFetched event,
     Emitter<StoriesListState> emit,
   ) async {
-    emit(StoriesListLoading());
+    emit(StoriesListLoadInProgress());
 
     final result = await getStories(NoParams());
 
     result.fold(
-      (failure) => emit(StoriesListError(failure.message)),
-      (stories) => emit(StoriesListLoaded(stories)),
+      (failure) => emit(StoriesListLoadFailure(failure.message)),
+      (stories) => emit(StoriesListLoadSuccess(stories)),
     );
   }
 }

@@ -20,14 +20,14 @@ class StoriesDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-    create: (_) => sl<StoriesDetailBloc>()..add(FetchStoryDetailEvent(storyId)),
+    create: (_) => sl<StoriesDetailBloc>()..add(StoriesDetailFetched(storyId)),
     child: Scaffold(
       appBar: const CustomAppBar(title: ''),
       body: BlocBuilder<StoriesDetailBloc, StoriesDetailState>(
         builder: (context, state) {
-          if (state is StoriesDetailLoading) {
+          if (state is StoriesDetailLoadInProgress) {
             return const Center(child: CircularProgressIndicator());
-          } else if (state is StoriesDetailLoaded) {
+          } else if (state is StoriesDetailLoadSuccess) {
             final story = state.story;
             return SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
@@ -49,7 +49,7 @@ class StoriesDetailScreen extends StatelessWidget {
                 ],
               ),
             );
-          } else if (state is StoriesDetailError) {
+          } else if (state is StoriesDetailLoadFailure) {
             return Center(child: Text(state.message));
           }
           return const Center(child: Text('Yükleniyor...'));

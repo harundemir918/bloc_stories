@@ -4,14 +4,14 @@ abstract class StoriesListState {}
 
 class StoriesListInitial extends StoriesListState {}
 
-class StoriesListLoading extends StoriesListState {}
+class StoriesListLoadInProgress extends StoriesListState {}
 
-class StoriesListLoaded extends StoriesListState {
+class StoriesListLoadSuccess extends StoriesListState {
   final List<StoryEntity> stories;
-  StoriesListLoaded(this.stories);
+  StoriesListLoadSuccess(this.stories);
 }
 
-class StoriesListError extends StoriesListState {
+class StoriesListLoadFailure extends StoriesListState {
   final String message;
-  StoriesListError(this.message);
+  StoriesListLoadFailure(this.message);
 }

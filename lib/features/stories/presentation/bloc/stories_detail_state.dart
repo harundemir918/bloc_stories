@@ -4,14 +4,14 @@ abstract class StoriesDetailState {}
 
 class StoriesDetailInitial extends StoriesDetailState {}
 
-class StoriesDetailLoading extends StoriesDetailState {}
+class StoriesDetailLoadInProgress extends StoriesDetailState {}
 
-class StoriesDetailLoaded extends StoriesDetailState {
+class StoriesDetailLoadSuccess extends StoriesDetailState {
   final StoryEntity story;
-  StoriesDetailLoaded(this.story);
+  StoriesDetailLoadSuccess(this.story);
 }
 
-class StoriesDetailError extends StoriesDetailState {
+class StoriesDetailLoadFailure extends StoriesDetailState {
   final String message;
-  StoriesDetailError(this.message);
+  StoriesDetailLoadFailure(this.message);
 }

@@ -9,14 +9,14 @@ class StoriesDetailBloc extends Bloc<StoriesDetailEvent, StoriesDetailState> {
 
   StoriesDetailBloc({required this.getStoryDetail})
     : super(StoriesDetailInitial()) {
-    on<FetchStoryDetailEvent>((event, emit) async {
-      emit(StoriesDetailLoading());
+    on<StoriesDetailFetched>((event, emit) async {
+      emit(StoriesDetailLoadInProgress());
 
       final result = await getStoryDetail(event.storyId);
 
       result.fold(
-        (failure) => emit(StoriesDetailError(failure.message)),
-        (story) => emit(StoriesDetailLoaded(story)),
+        (failure) => emit(StoriesDetailLoadFailure(failure.message)),
+        (story) => emit(StoriesDetailLoadSuccess(story)),
       );
     });
   }

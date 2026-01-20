@@ -15,15 +15,15 @@ class StoriesBody extends StatelessWidget {
   Widget build(BuildContext context) => RefreshIndicator(
     onRefresh: () async {
       // Sayfayı yenileme (Pull to refresh)
-      context.read<StoriesListBloc>().add(FetchStoriesEvent());
+      context.read<StoriesListBloc>().add(StoriesListFetched());
     },
     child: BlocBuilder<StoriesListBloc, StoriesListState>(
       builder: (context, state) {
-        if (state is StoriesListLoading) {
+        if (state is StoriesListLoadInProgress) {
           return const Center(child: CircularProgressIndicator());
-        } else if (state is StoriesListLoaded) {
+        } else if (state is StoriesListLoadSuccess) {
           return StoriesList(stories: state.stories);
-        } else if (state is StoriesListError) {
+        } else if (state is StoriesListLoadFailure) {
           return StoriesRetry(message: state.message);
         }
         return const Center(child: Text('Hikaye yükleniyor...'));

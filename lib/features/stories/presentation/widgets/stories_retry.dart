@@ -25,7 +25,7 @@ class StoriesRetry extends StatelessWidget {
         const SizedBox(height: 16),
         ElevatedButton(
           onPressed: () =>
-              context.read<StoriesListBloc>().add(FetchStoriesEvent()),
+              context.read<StoriesListBloc>().add(StoriesListFetched()),
           child: const Text('Tekrar Dene'),
         ),
       ],

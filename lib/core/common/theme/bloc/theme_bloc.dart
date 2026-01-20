@@ -6,14 +6,14 @@ import 'theme_state.dart';
 /// Tema yönetimi için BLoC sınıfı.
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   ThemeBloc() : super(const ThemeState(ThemeMode.light)) {
-    on<ToggleThemeEvent>((event, emit) {
+    on<ThemeToggled>((event, emit) {
       final newMode = state.themeMode == ThemeMode.light
           ? ThemeMode.dark
           : ThemeMode.light;
       emit(ThemeState(newMode));
     });
 
-    on<ChangeThemeEvent>((event, emit) {
+    on<ThemeChanged>((event, emit) {
       emit(ThemeState(event.themeMode));
     });
   }

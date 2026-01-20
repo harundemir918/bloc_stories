@@ -1,4 +1,4 @@
 abstract class StoriesListEvent {}
 
 /// Tüm hikayeleri getirmeyi tetikleyen olay.
-class FetchStoriesEvent extends StoriesListEvent {}
+class StoriesListFetched extends StoriesListEvent {}
