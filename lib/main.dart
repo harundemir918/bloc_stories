@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/di/injection_container.dart' as di;
-import 'features/home/presentation/bloc/home_bloc.dart';
-import 'features/home/presentation/bloc/home_event.dart';
-import 'features/home/presentation/screens/home_screen.dart';
+import 'features/stories/presentation/bloc/stories_list_bloc.dart';
+import 'features/stories/presentation/bloc/stories_list_event.dart';
+import 'features/stories/presentation/screens/stories_screen.dart';
 
 void main() async {
   // Flutter binding'lerini hazırla
@@ -32,8 +32,8 @@ class MyApp extends StatelessWidget {
     ),
     // BLoC'u tüm uygulama veya ilgili rota seviyesinde sağlıyoruz
     home: BlocProvider(
-      create: (_) => di.sl<HomeBloc>()..add(FetchStoriesEvent()),
-      child: const HomeScreen(),
+      create: (_) => di.sl<StoriesListBloc>()..add(FetchStoriesEvent()),
+      child: const StoriesListScreen(),
     ),
   );
 }
