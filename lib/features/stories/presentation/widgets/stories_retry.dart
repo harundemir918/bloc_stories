@@ -20,7 +20,7 @@ class StoriesRetry extends StatelessWidget {
         Text(
           message,
           textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 16),
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
         const SizedBox(height: 16),
         ElevatedButton(

@@ -22,7 +22,6 @@ class StoriesDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) => BlocProvider(
     create: (_) => sl<StoriesDetailBloc>()..add(FetchStoryDetailEvent(storyId)),
     child: Scaffold(
-      backgroundColor: Colors.white,
       appBar: const CustomAppBar(title: ''),
       body: BlocBuilder<StoriesDetailBloc, StoriesDetailState>(
         builder: (context, state) {

@@ -9,10 +9,8 @@ class StoriesDetailTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Text(
     title,
-    style: const TextStyle(
-      fontSize: 32,
-      fontWeight: FontWeight.bold,
-      color: Color(0xFF1A1A1A),
-    ),
+    style: Theme.of(
+      context,
+    ).textTheme.headlineLarge?.copyWith(fontWeight: FontWeight.bold),
   );
 }

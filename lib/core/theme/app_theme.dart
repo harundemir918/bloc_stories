@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'app_colors.dart';
+import 'app_typography.dart';
 
 /// Uygulamanın tam tema tanımları.
 class AppTheme {
@@ -33,13 +34,10 @@ class AppTheme {
         side: const BorderSide(color: AppColors.cardBorder),
       ),
     ),
-    textTheme: const TextTheme(
-      titleLarge: TextStyle(
-        color: AppColors.charcoal,
-        fontWeight: FontWeight.bold,
-      ),
-      bodyMedium: TextStyle(color: AppColors.textBody),
-      bodySmall: TextStyle(color: AppColors.textSecondary),
+    textTheme: AppTypography.textTheme.apply(
+      bodyColor: AppColors.textBody,
+      displayColor: AppColors.charcoal,
+      decorationColor: AppColors.accent,
     ),
     useMaterial3: true,
   );
@@ -74,13 +72,10 @@ class AppTheme {
         side: const BorderSide(color: AppColors.cardBorderDark),
       ),
     ),
-    textTheme: const TextTheme(
-      titleLarge: TextStyle(
-        color: AppColors.textBodyDark,
-        fontWeight: FontWeight.bold,
-      ),
-      bodyMedium: TextStyle(color: AppColors.textBodyDark),
-      bodySmall: TextStyle(color: AppColors.textSecondaryDark),
+    textTheme: AppTypography.textTheme.apply(
+      bodyColor: AppColors.textBodyDark,
+      displayColor: AppColors.textBodyDark,
+      decorationColor: AppColors.primaryDark,
     ),
     useMaterial3: true,
   );

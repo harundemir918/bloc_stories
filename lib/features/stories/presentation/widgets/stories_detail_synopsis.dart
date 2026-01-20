@@ -10,19 +10,17 @@ class StoriesDetailSynopsis extends StatelessWidget {
     children: [
       Text(
         'SYNOPSIS',
-        style: TextStyle(
-          fontSize: 12,
+        style: Theme.of(context).textTheme.labelLarge?.copyWith(
           fontWeight: FontWeight.bold,
-          color: Colors.grey[400],
+          color: Theme.of(context).textTheme.bodySmall?.color,
           letterSpacing: 1.5,
         ),
       ),
       Text(
         '15 MIN READ',
-        style: TextStyle(
-          fontSize: 12,
+        style: Theme.of(context).textTheme.labelLarge?.copyWith(
           fontWeight: FontWeight.bold,
-          color: Colors.grey[400],
+          color: Theme.of(context).textTheme.bodySmall?.color,
           letterSpacing: 1.5,
         ),
       ),

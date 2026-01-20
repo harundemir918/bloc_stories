@@ -11,20 +11,17 @@ class StoriesDetailAuthor extends StatelessWidget {
     children: [
       Text(
         'BY ',
-        style: TextStyle(
-          fontSize: 14,
-          color: Colors.grey[500],
+        style: Theme.of(context).textTheme.labelLarge?.copyWith(
+          color: Theme.of(context).textTheme.bodySmall?.color,
           letterSpacing: 1.2,
         ),
       ),
       Text(
         author.toUpperCase(),
-        style: const TextStyle(
-          fontSize: 14,
+        style: Theme.of(context).textTheme.titleSmall?.copyWith(
           fontWeight: FontWeight.bold,
-          color: Color(0xFF1A1A1A),
           decoration: TextDecoration.underline,
-          decorationColor: Colors.pinkAccent,
+          decorationColor: Theme.of(context).colorScheme.secondary,
           decorationThickness: 2,
         ),
       ),

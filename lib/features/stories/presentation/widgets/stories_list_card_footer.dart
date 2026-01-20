@@ -18,26 +18,29 @@ class StoriesListCardFooter extends StatelessWidget {
       Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
         decoration: BoxDecoration(
-          color: const Color(0xFFF1F2F6),
+          color: Theme.of(context).colorScheme.surfaceContainerHighest,
           borderRadius: BorderRadius.circular(8),
         ),
         child: Text(
           author.toUpperCase(),
-          style: const TextStyle(
-            fontSize: 10,
+          style: Theme.of(context).textTheme.labelSmall?.copyWith(
             fontWeight: FontWeight.bold,
-            color: Color(0xFF7F8C8D),
+            color: Theme.of(context).textTheme.bodySmall?.color,
             letterSpacing: 0.5,
           ),
         ),
       ),
       const SizedBox(width: 12),
       // Okuma süresi yerine tarih
-      const Icon(Icons.access_time_rounded, size: 14, color: Colors.grey),
+      Icon(
+        Icons.access_time_rounded,
+        size: 14,
+        color: Theme.of(context).textTheme.bodySmall?.color,
+      ),
       const SizedBox(width: 4),
       Text(
         _formatDate(createdAt),
-        style: TextStyle(fontSize: 12, color: Colors.grey[500]),
+        style: Theme.of(context).textTheme.bodySmall,
       ),
     ],
   );

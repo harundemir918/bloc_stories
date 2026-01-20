@@ -9,7 +9,7 @@ class StoriesDetailDivider extends StatelessWidget {
     width: 40,
     height: 4,
     decoration: BoxDecoration(
-      color: Colors.pink[100],
+      color: Theme.of(context).colorScheme.secondary,
       borderRadius: BorderRadius.circular(2),
     ),
   );

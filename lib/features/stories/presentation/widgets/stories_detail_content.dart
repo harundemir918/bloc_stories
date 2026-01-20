@@ -9,6 +9,6 @@ class StoriesDetailContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Text(
     content,
-    style: const TextStyle(fontSize: 18, color: Color(0xFF4A4A4A), height: 1.6),
+    style: Theme.of(context).textTheme.bodyLarge?.copyWith(height: 1.6),
   );
 }

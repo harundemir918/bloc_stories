@@ -16,7 +16,7 @@ class StoriesAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) => BlocBuilder<ThemeBloc, ThemeState>(
     builder: (context, state) => CustomAppBar(
-      title: 'Stories',
+      title: 'Hikayeler',
       actions: [
         IconButton(
           icon: Icon(

@@ -22,8 +22,11 @@ class StoriesListCardImage extends StatelessWidget {
       errorBuilder: (context, error, stackTrace) => Container(
         height: 100,
         width: 100,
-        color: Colors.grey[200],
-        child: const Icon(Icons.image_not_supported),
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
+        child: Icon(
+          Icons.image_not_supported,
+          color: Theme.of(context).textTheme.bodySmall?.color,
+        ),
       ),
     ),
   );

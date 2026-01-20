@@ -7,12 +7,6 @@ class StoriesListCardContent extends StatelessWidget {
   const StoriesListCardContent({required this.author, super.key});
 
   @override
-  Widget build(BuildContext context) => Text(
-    author,
-    style: TextStyle(
-      fontSize: 14,
-      color: Colors.grey[500],
-      fontWeight: FontWeight.w400,
-    ),
-  );
+  Widget build(BuildContext context) =>
+      Text(author, style: Theme.of(context).textTheme.bodyMedium);
 }

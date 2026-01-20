@@ -27,15 +27,23 @@ class StoriesListCard extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).cardTheme.color,
         borderRadius: BorderRadius.circular(24),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.04),
-            blurRadius: 12,
-            offset: const Offset(0, 4),
-          ),
-        ],
+        border: Theme.of(context).cardTheme.shape is RoundedRectangleBorder
+            ? Border.fromBorderSide(
+                (Theme.of(context).cardTheme.shape as RoundedRectangleBorder)
+                    .side,
+              )
+            : null,
+        boxShadow: Theme.of(context).brightness == Brightness.light
+            ? [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.04),
+                  blurRadius: 12,
+                  offset: const Offset(0, 4),
+                ),
+              ]
+            : null,
       ),
       child: Row(
         children: [
@@ -59,7 +67,10 @@ class StoriesListCard extends StatelessWidget {
             ),
           ),
           // Sağ taraf: Ok işareti (Opsiyonel ama görselde var)
-          const Icon(Icons.chevron_right, color: Color(0xFFD1D1D1)),
+          Icon(
+            Icons.chevron_right,
+            color: Theme.of(context).textTheme.bodySmall?.color,
+          ),
         ],
       ),
     ),
