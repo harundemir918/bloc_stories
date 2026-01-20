@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/common/theme/bloc/theme_bloc.dart';
+import '../../../../core/common/theme/bloc/theme_event.dart';
+import '../../../../core/common/theme/bloc/theme_state.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 
 /// Ana sayfa için özel olarak tasarlanmış AppBar bileşeni.
-/// [CustomAppBar] bileşenini temel alır.
 class StoriesAppBar extends StatelessWidget implements PreferredSizeWidget {
   const StoriesAppBar({super.key});
 
@@ -11,6 +14,19 @@ class StoriesAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
-  Widget build(BuildContext context) =>
-      const CustomAppBar(title: 'Günün Hikayeleri');
+  Widget build(BuildContext context) => BlocBuilder<ThemeBloc, ThemeState>(
+    builder: (context, state) => CustomAppBar(
+      title: 'Stories',
+      actions: [
+        IconButton(
+          icon: Icon(
+            state.themeMode == ThemeMode.light
+                ? Icons.dark_mode_outlined
+                : Icons.light_mode_outlined,
+          ),
+          onPressed: () => context.read<ThemeBloc>().add(ToggleThemeEvent()),
+        ),
+      ],
+    ),
+  );
 }

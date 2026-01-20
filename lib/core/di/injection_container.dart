@@ -7,6 +7,7 @@ import '../../features/stories/domain/usecases/get_stories.dart';
 import '../../features/stories/domain/usecases/get_story_detail.dart';
 import '../../features/stories/presentation/bloc/stories_list_bloc.dart';
 import '../../features/stories/presentation/bloc/stories_detail_bloc.dart';
+import '../common/theme/bloc/theme_bloc.dart';
 
 // Bağımlılıkların yönetildiği servis kayıt defteri
 final sl = GetIt.instance; // sl: Service Locator
@@ -19,7 +20,9 @@ Future<void> init() async {
 
 /// Çekirdek (Core) ve harici (External) bağımlılıkların kaydı.
 void _initCore() {
-  sl.registerLazySingleton(() => Dio());
+  sl
+    ..registerLazySingleton(() => Dio())
+    ..registerLazySingleton(() => ThemeBloc());
 }
 
 /// Stories özelliğine ait bağımlılıkların kaydı.
