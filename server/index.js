@@ -52,7 +52,7 @@ app.get('/api/stories', (req, res) => {
  */
 app.get('/api/stories/:id', (req, res) => {
   const stories = getStories();
-  const story = stories.find(s => s.id === req.params.id);
+  const story = stories.find(s => String(s.id) === req.params.id);
 
   if (story) {
     res.status(200).json({
