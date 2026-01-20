@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
-/// Hikaye kartındaki içerik özetini gösteren bileşen.
-class HomeStoryCardContent extends StatelessWidget {
-  final String content;
+/// Hikaye kartındaki yazar ismini gösteren gri metin bileşeni.
+class HomeStoryCardAuthor extends StatelessWidget {
+  final String author;
 
-  const HomeStoryCardContent({required this.content, super.key});
+  const HomeStoryCardAuthor({required this.author, super.key});
 
   @override
   Widget build(BuildContext context) => Text(
-    content,
-    maxLines: 2,
-    overflow: TextOverflow.ellipsis,
-    style: TextStyle(fontSize: 14, color: Colors.grey[600], height: 1.5),
+    author,
+    style: TextStyle(
+      fontSize: 14,
+      color: Colors.grey[500],
+      fontWeight: FontWeight.w400,
+    ),
   );
 }
