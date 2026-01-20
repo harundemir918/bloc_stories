@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../domain/entities/story_entity.dart';
+import '../../../detail/presentation/screens/detail_screen.dart';
 import 'home_story_card_content.dart'; // This file now contains HomeStoryCardAuthor
 import 'home_story_card_footer.dart';
 import 'home_story_card_image.dart';
@@ -13,44 +14,54 @@ class HomeStoryCard extends StatelessWidget {
   const HomeStoryCard({required this.story, super.key});
 
   @override
-  Widget build(BuildContext context) => Container(
-    padding: const EdgeInsets.all(12),
-    margin: const EdgeInsets.only(bottom: 16),
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(24),
-      boxShadow: [
-        BoxShadow(
-          color: Colors.black.withValues(alpha: 0.04),
-          blurRadius: 12,
-          offset: const Offset(0, 4),
+  Widget build(BuildContext context) => GestureDetector(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => DetailScreen(storyId: story.id),
         ),
-      ],
-    ),
-    child: Row(
-      children: [
-        // Sol taraf: Görsel
-        HomeStoryCardImage(imageUrl: story.imageUrl, author: story.author),
-        const SizedBox(width: 16),
-        // Orta taraf: Bilgiler
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              HomeStoryCardTitle(title: story.title),
-              const SizedBox(height: 4),
-              HomeStoryCardAuthor(author: story.author),
-              const SizedBox(height: 12),
-              HomeStoryCardFooter(
-                createdAt: story.createdAt,
-                author: story.author,
-              ),
-            ],
+      );
+    },
+    child: Container(
+      padding: const EdgeInsets.all(12),
+      margin: const EdgeInsets.only(bottom: 16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.04),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
           ),
-        ),
-        // Sağ taraf: Ok işareti (Opsiyonel ama görselde var)
-        const Icon(Icons.chevron_right, color: Color(0xFFD1D1D1)),
-      ],
+        ],
+      ),
+      child: Row(
+        children: [
+          // Sol taraf: Görsel
+          HomeStoryCardImage(imageUrl: story.imageUrl, author: story.author),
+          const SizedBox(width: 16),
+          // Orta taraf: Bilgiler
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                HomeStoryCardTitle(title: story.title),
+                const SizedBox(height: 4),
+                HomeStoryCardAuthor(author: story.author),
+                const SizedBox(height: 12),
+                HomeStoryCardFooter(
+                  createdAt: story.createdAt,
+                  author: story.author,
+                ),
+              ],
+            ),
+          ),
+          // Sağ taraf: Ok işareti (Opsiyonel ama görselde var)
+          const Icon(Icons.chevron_right, color: Color(0xFFD1D1D1)),
+        ],
+      ),
     ),
   );
 }

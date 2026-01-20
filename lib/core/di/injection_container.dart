@@ -1,5 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import '../../features/detail/data/datasources/detail_remote_data_source.dart';
+import '../../features/detail/data/repositories/detail_repository_impl.dart';
+import '../../features/detail/domain/repositories/detail_repository.dart';
+import '../../features/detail/domain/usecases/get_story_detail.dart';
+import '../../features/detail/presentation/bloc/detail_bloc.dart';
 import '../../features/home/data/datasources/home_remote_data_source.dart';
 import '../../features/home/data/repositories/home_repository_impl.dart';
 import '../../features/home/domain/repositories/home_repository.dart';
@@ -11,20 +16,34 @@ final sl = GetIt.instance; // sl: Service Locator
 
 /// Uygulama başladığında tüm bağımlılıkları kaydeden fonksiyon.
 Future<void> init() async {
-  // --- Features - Home ---
+  _initCore();
+  _initHome();
+  _initDetail();
+}
 
-  // Bloc (Factories her çağrıldığında yeni bir nesne oluşturur)
+/// Çekirdek (Core) ve harici (External) bağımlılıkların kaydı.
+void _initCore() {
+  sl.registerLazySingleton(() => Dio());
+}
+
+/// Home özelliğine ait bağımlılıkların kaydı.
+void _initHome() {
   sl
     ..registerFactory(() => HomeBloc(getStories: sl()))
-    // Use Cases (LazySingleton ihtiyaç duyulduğunda bir kez oluşturulur)
     ..registerLazySingleton(() => GetStories(sl()))
-    // Repository
     ..registerLazySingleton<HomeRepository>(() => HomeRepositoryImpl(sl()))
-    // Data Sources
     ..registerLazySingleton<HomeRemoteDataSource>(
       () => HomeRemoteDataSourceImpl(sl()),
-    )
-    // --- Core / External ---
-    // Dio (Ağ istekleri için)
-    ..registerLazySingleton(() => Dio());
+    );
+}
+
+/// Detail özelliğine ait bağımlılıkların kaydı.
+void _initDetail() {
+  sl
+    ..registerFactory(() => DetailBloc(getStoryDetail: sl()))
+    ..registerLazySingleton(() => GetStoryDetail(sl()))
+    ..registerLazySingleton<DetailRepository>(() => DetailRepositoryImpl(sl()))
+    ..registerLazySingleton<DetailRemoteDataSource>(
+      () => DetailRemoteDataSourceImpl(sl()),
+    );
 }
