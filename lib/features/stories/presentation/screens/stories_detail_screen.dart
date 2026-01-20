@@ -5,6 +5,12 @@ import '../../../../core/widgets/custom_app_bar.dart';
 import '../bloc/stories_detail_bloc.dart';
 import '../bloc/stories_detail_event.dart';
 import '../bloc/stories_detail_state.dart';
+import '../widgets/stories_detail_author.dart';
+import '../widgets/stories_detail_content.dart';
+import '../widgets/stories_detail_divider.dart';
+import '../widgets/stories_detail_image.dart';
+import '../widgets/stories_detail_synopsis.dart';
+import '../widgets/stories_detail_title.dart';
 
 /// Hikaye detaylarının gösterildiği ekran.
 class StoriesDetailScreen extends StatelessWidget {
@@ -29,95 +35,17 @@ class StoriesDetailScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.network(
-                      story.imageUrl,
-                      width: double.infinity,
-                      height: 250,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) => Container(
-                        height: 250,
-                        color: Colors.grey[100],
-                        child: const Icon(Icons.image_not_supported, size: 50),
-                      ),
-                    ),
-                  ),
+                  StoriesDetailImage(imageUrl: story.imageUrl),
                   const SizedBox(height: 32),
-                  Text(
-                    story.title,
-                    style: const TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF1A1A1A),
-                    ),
-                  ),
+                  StoriesDetailTitle(title: story.title),
                   const SizedBox(height: 12),
-                  Row(
-                    children: [
-                      Text(
-                        'BY ',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey[500],
-                          letterSpacing: 1.2,
-                        ),
-                      ),
-                      Text(
-                        story.author.toUpperCase(),
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF1A1A1A),
-                          decoration: TextDecoration.underline,
-                          decorationColor: Colors.pinkAccent,
-                          decorationThickness: 2,
-                        ),
-                      ),
-                    ],
-                  ),
+                  StoriesDetailAuthor(author: story.author),
                   const SizedBox(height: 24),
-                  Container(
-                    width: 40,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      color: Colors.pink[100],
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                  ),
+                  const StoriesDetailDivider(),
                   const SizedBox(height: 32),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'SYNOPSIS',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[400],
-                          letterSpacing: 1.5,
-                        ),
-                      ),
-                      Text(
-                        '15 MIN READ',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[400],
-                          letterSpacing: 1.5,
-                        ),
-                      ),
-                    ],
-                  ),
+                  const StoriesDetailSynopsis(),
                   const SizedBox(height: 24),
-                  Text(
-                    story.content,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      color: Color(0xFF4A4A4A),
-                      height: 1.6,
-                    ),
-                  ),
+                  StoriesDetailContent(content: story.content),
                   const SizedBox(height: 40),
                 ],
               ),
