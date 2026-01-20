@@ -13,7 +13,8 @@ linter:
   # The lint rules applied to this project can be customized in the
   # section below to disable rules from the `package:flutter_lints/flutter.yaml`
   # included above or to enable additional rules. A list of all available lints
-  # and their documentation is published at https://dart.dev/lints.
+  # and their documentation is published at
+  # https://dart.dev/tools/linter-rules.
   #
   # Instead of disabling a lint rule for the entire project in the
   # section below, it can also be suppressed for a single line of code
@@ -21,8 +22,77 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    - avoid_slow_async_io # https://dart.dev/tools/linter-rules/avoid_slow_async_io.html
+    - avoid_type_to_string # https://dart.dev/tools/linter-rules/avoid_type_to_string.html
+    - avoid_types_as_parameter_names # https://dart.dev/tools/linter-rules/avoid_types_as_parameter_names.html
+    - close_sinks # https://dart.dev/tools/linter-rules/close_sinks.html
+    - control_flow_in_finally # https://dart.dev/tools/linter-rules/control_flow_in_finally.html
+    - empty_statements # https://dart.dev/tools/linter-rules/empty_statements.html
+    - collection_methods_unrelated_type # https://dart.dev/tools/linter-rules/collection_methods_unrelated_type.html
+    - literal_only_boolean_expressions # https://dart.dev/tools/linter-rules/literal_only_boolean_expressions.html
+    - no_duplicate_case_values # https://dart.dev/tools/linter-rules/no_duplicate_case_values.html
+    - no_logic_in_create_state # https://dart.dev/tools/linter-rules/no_logic_in_create_state.html
+    - prefer_void_to_null # https://dart.dev/tools/linter-rules/prefer_void_to_null.html
+    - unnecessary_statements # https://dart.dev/tools/linter-rules/unnecessary_statements.html
+    - unrelated_type_equality_checks # https://dart.dev/tools/linter-rules/unrelated_type_equality_checks.html
+    - use_build_context_synchronously # https://dart.dev/tools/linter-rules/use_build_context_synchronously.html
+    - always_declare_return_types # https://dart.dev/tools/linter-rules/always_declare_return_types.html
+    - always_put_required_named_parameters_first # https://dart.dev/tools/linter-rules/always_put_required_named_parameters_first.html
+    - avoid_field_initializers_in_const_classes # https://dart.dev/tools/linter-rules/avoid_field_initializers_in_const_classes.html
+    - prefer_const_constructors # https://dart.dev/tools/linter-rules/prefer_const_constructors.html
+    - camel_case_extensions # https://dart.dev/tools/linter-rules/camel_case_extensions.html
+    - camel_case_types # https://dart.dev/tools/linter-rules/camel_case_types.html
+    - cascade_invocations # https://dart.dev/tools/linter-rules/cascade_invocations.html
+    - empty_catches # https://dart.dev/tools/linter-rules/empty_catches.html
+    - constant_identifier_names # https://dart.dev/tools/linter-rules/constant_identifier_names.html
+    - curly_braces_in_flow_control_structures # https://dart.dev/tools/linter-rules/curly_braces_in_flow_control_structures.html
+    - eol_at_end_of_file # https://dart.dev/tools/linter-rules/eol_at_end_of_file.html
+    - file_names # https://dart.dev/tools/linter-rules/file_names.html
+    - join_return_with_assignment # https://dart.dev/tools/linter-rules/join_return_with_assignment.html
+    - leading_newlines_in_multiline_strings # https://dart.dev/tools/linter-rules/leading_newlines_in_multiline_strings.html
+    - library_names # https://dart.dev/tools/linter-rules/library_names.html
+    - library_prefixes # https://dart.dev/tools/linter-rules/library_prefixes.html
+    - noop_primitive_operations # https://dart.dev/tools/linter-rules/noop_primitive_operations.html
+    - null_closures # https://dart.dev/tools/linter-rules/null_closures.html
+    - omit_local_variable_types # https://dart.dev/tools/linter-rules/omit_local_variable_types.html
+    - only_throw_errors # https://dart.dev/tools/linter-rules/only_throw_errors.html
+    - overridden_fields # https://dart.dev/tools/linter-rules/overridden_fields.html
+    - package_prefixed_library_names # https://dart.dev/tools/linter-rules/package_prefixed_library_names.html
+    - prefer_collection_literals # https://dart.dev/tools/linter-rules/prefer_collection_literals.html
+    - prefer_conditional_assignment # https://dart.dev/tools/linter-rules/prefer_conditional_assignment.html
+    - prefer_const_constructors_in_immutables # https://dart.dev/tools/linter-rules/prefer_const_constructors_in_immutables.html
+    - prefer_const_literals_to_create_immutables # https://dart.dev/tools/linter-rules/prefer_const_literals_to_create_immutables.html
+    - prefer_const_declarations # https://dart.dev/tools/linter-rules/prefer_const_declarations.html
+    - prefer_constructors_over_static_methods # https://dart.dev/tools/linter-rules/prefer_constructors_over_static_methods.html
+    - prefer_equal_for_default_values # https://dart.dev/tools/linter-rules/prefer_equal_for_default_values.html
+    - prefer_expression_function_bodies # https://dart.dev/tools/linter-rules/prefer_expression_function_bodies.html
+    - prefer_final_fields # https://dart.dev/tools/linter-rules/prefer_final_fields.html
+    - prefer_final_in_for_each # https://dart.dev/tools/linter-rules/prefer_final_in_for_each.html
+    - prefer_final_locals  # https://dart.dev/tools/linter-rules/prefer_final_locals.html
+    - prefer_for_elements_to_map_fromIterable  # https://dart.dev/tools/linter-rules/prefer_for_elements_to_map_fromIterable.html
+    - prefer_foreach  # https://dart.dev/tools/linter-rules/prefer_foreach.html
+    - prefer_if_null_operators  # https://dart.dev/tools/linter-rules/prefer_if_null_operators.html
+    - prefer_if_elements_to_conditional_expressions  # https://dart.dev/tools/linter-rules/prefer_if_elements_to_conditional_expressions.html
+    - prefer_generic_function_type_aliases  # https://dart.dev/tools/linter-rules/prefer_generic_function_type_aliases.html
+    - prefer_function_declarations_over_variables  # https://dart.dev/tools/linter-rules/prefer_function_declarations_over_variables.html
+    - prefer_initializing_formals  # https://dart.dev/tools/linter-rules/prefer_initializing_formals.html
+    - prefer_inlined_adds  # https://dart.dev/tools/linter-rules/prefer_inlined_adds.html
+    - prefer_interpolation_to_compose_strings  # https://dart.dev/tools/linter-rules/prefer_interpolation_to_compose_strings.html
+    - prefer_is_empty  # https://dart.dev/tools/linter-rules/prefer_is_empty.html
+    - prefer_is_not_empty  # https://dart.dev/tools/linter-rules/prefer_is_not_empty.html
+    - prefer_iterable_whereType  # https://dart.dev/tools/linter-rules/prefer_iterable_whereType.html
+    - prefer_null_aware_method_calls  # https://dart.dev/tools/linter-rules/prefer_null_aware_method_calls.html
+    - prefer_relative_imports # https://dart.dev/tools/linter-rules/prefer_relative_imports.html
+    - prefer_spread_collections  # https://dart.dev/tools/linter-rules/prefer_spread_collections.html
+    - recursive_getters  # https://dart.dev/tools/linter-rules/recursive_getters.html
+    - prefer_typing_uninitialized_variables  # https://dart.dev/tools/linter-rules/prefer_typing_uninitialized_variables.html
+    - sized_box_for_whitespace  # https://dart.dev/tools/linter-rules/sized_box_for_whitespace.html
+    - type_annotate_public_apis  # https://dart.dev/tools/linter-rules/type_annotate_public_apis.html
+    - unnecessary_brace_in_string_interps  # https://dart.dev/tools/linter-rules/unnecessary_brace_in_string_interps.html
+    - unnecessary_const  # https://dart.dev/tools/linter-rules/unnecessary_const.html
+    - unnecessary_await_in_return  # https://dart.dev/tools/linter-rules/unnecessary_await_in_return.html
+    - use_named_constants  # https://dart.dev/tools/linter-rules/use_named_constants.html
+    - use_if_null_to_convert_nulls_to_bools  # https://dart.dev/tools/linter-rules/use_if_null_to_convert_nulls_to_bools.html
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
